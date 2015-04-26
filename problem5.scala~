@@ -1,0 +1,8 @@
+import scala.io.Source.fromFile
+
+object MotifDNA {
+  def main(args: Array[String]) {
+    val infoSet = fromFile(args(0)).mkString.split("\n").toSet
+    for (i <- 0 to (infoSet(1).length -5)) if(infoSet(0).slice(i, i+5) == infoSet(1)) print(i +" ")
+  }
+}

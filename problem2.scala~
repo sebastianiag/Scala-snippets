@@ -1,0 +1,7 @@
+import scala.io.Source.fromFile
+
+object RNA {
+  val DNA = fromFile("database1.txt").mkString
+  val RNA = DNA.map(x => if(x == 'T') 'U' else x)
+  println RNA
+}

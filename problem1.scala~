@@ -1,0 +1,13 @@
+import scala.io.Source.fromFile
+
+
+object NucleotideCounter {
+  def main(args: Array[String]) = {
+    val nucleotides: String = fromFile("database.txt").mkString
+    val adenine: Int = nucleotides.filter(x => x == 'A').length
+    val cytosine: Int = nucleotides.filter(x => x == 'C').length
+    val guanine: Int = nucleotides.filter(x => x == 'G').legnth
+    val thymine: Int = nucleotides.filter(x => x == 'T').length
+    println("A: " + adenine.toString + "B: " + cytosine.toString + "C: " + guanine.toString + "D: " + thymine.toString)
+  }
+} 

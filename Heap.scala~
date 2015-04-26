@@ -1,0 +1,3 @@
+class Heap[T](array: Array[T] = Nil){
+  
+}

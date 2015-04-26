@@ -1,0 +1,15 @@
+object BinarySearch{
+  def rank(elem: Int, a: Array[Int], pos: Int): Int = {
+    val mid: Int = a.length/2 -1
+    if (elem < a(mid)) rank(elem, a.splitAt(mid)._1, 0)
+    else if (elem > a(mid)) rank(elem, a.splitAt(mid)._2, mid+pos)
+    else if (elem == a(mid)) (pos+mid)
+    else -1
+  }
+
+  def main(args: Array[String]) {
+    val a = Array(1,2,3,4,5,6,7,8,9,10)
+    val key = rank(10, a, 0)
+    println(key)
+  }
+}

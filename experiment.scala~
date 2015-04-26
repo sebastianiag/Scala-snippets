@@ -1,0 +1,41 @@
+import scala.util.Random
+import scala.util.control.Breaks._
+class Player {
+  var victories: Int = 0
+}
+
+object Player {
+  def game(player1 : Player, player2: Player) {
+    var iterations: Int = 2
+    var picks1: Int = Random.nextInt(6)
+    var turn: Int =  2
+    while (true) {
+      var picks2: Int =  Random.nextInt(6)
+      if (turn%2 !=0){
+	if (picks1 <= picks2){
+	  player2.victories += 1
+	  break
+	}
+	else picks2 = Random.nextInt(6)
+      }
+      else { 
+	if (picks2 <= picks1){
+	  player1.victories += 1
+	  break
+	}
+	else picks1 = Random.nextInt(6)
+      }
+    }
+  }
+}
+
+object Simulation {
+  def main(){
+    var player1 = new Player()
+    var player2 = new Player()
+    Player.game(player1, player2)
+    println("="*30)
+    println(f"Results \n \tPlayer1: $player1.victories%f  \n \tPlayer2: $player2.victories%f")
+    println("="*30)
+  }
+}
